@@ -4,7 +4,22 @@
 
 {% block content %}
 <div class="jumbotron">
-    <h1 class="display-4">Build With X</h1>
+    <div style="display:flex;align-items: center;flex-direction: column;">
+    <h2 id="id1" class="display-4">Build With X</h2>
     <p class="lead">A platform to submit your projects.</p>
+    </div>
+    <div style="display:flex;justify-content:space-evenly;">
+    {% for project in object_list %}
+        <div>
+            <a href="{{ project.url }}">
+                <img src="{{ project.website_image.url }}" style="height:100%;max-height:300px;width:100%;max-width:450px;" alt="error_img">
+            </a>
+            <div id="id2">
+                <h2> {{ project.project_name }}</h2>
+                <p>{{ project.description }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
 </div>
 {% endblock content %}

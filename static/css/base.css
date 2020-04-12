@@ -1,0 +1,13 @@
+body {
+    background-color: rgb(157, 234, 248);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+}
+
+#id1 {
+    color: red;
+}
+
+#id2 {
+    border: 1px, solid;
+}
