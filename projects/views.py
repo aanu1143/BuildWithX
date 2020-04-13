@@ -33,4 +33,3 @@ class ProjectCreateView(LoginRequiredMixin,CreateView):
    def form_valid(self,form): #if form is valid
      form.instance.user = self.request.user
      return super().form_valid(form)
-
