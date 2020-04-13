@@ -4,22 +4,33 @@ from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import CreateView
 from .models import Project
 from users.models import CustomUser
-
+from users.forms import UserForm
+from .forms import ProjectForm
+from django.urls import reverse_lazy
 # Create your views here.
+
 class HomeView(ListView):
     template_name = 'home.html'
     model = Project
 
+    def get_queryset(self):
+        search_tag = self.request.GET.get('search','')
+        return Project.objects.filter(project_name__contains=search_tag)
+
+
+
 class ProjectCreateView(LoginRequiredMixin,CreateView):
    model = Project
    template_name = 'project_new.html'
-   fields = ['project_name','description', 'build_with', 'url', 'website_image', 'user', 'user_type']
+   form_class = ProjectForm
    login_url = 'login'
+   success_url = reverse_lazy('home')
+
+   def get_form_kwargs(self, *args, **kwargs):
+        kwargs = super(ProjectCreateView, self).get_form_kwargs(*args, **kwargs)
+        return kwargs
 
    def form_valid(self,form): #if form is valid
-     form.instance.person = self.request.user
+     form.instance.user = self.request.user
      return super().form_valid(form)
 
-class ProfileDetailView(LoginRequiredMixin,DetailView):
-    model = CustomUser
-    template_name = 'profile_detail.html'

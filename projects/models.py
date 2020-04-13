@@ -20,7 +20,7 @@ class Project(models.Model):
     url = models.URLField(max_length=200, null=True)
     website_image = models.ImageField(upload_to= 'img/', height_field=None, width_field=None, max_length=100, null=True)
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='profileuser', null=True)
-    date = models.DateTimeField(default=datetime.datetime.now)
+    date = models.DateTimeField(auto_now_add=True)
     user_type = models.CharField(max_length=25,choices=types, null=True)
 
 
