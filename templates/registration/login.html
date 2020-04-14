@@ -4,12 +4,18 @@
 
 {% block content %}
 
-<h2>Log In</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
+<div class="logincontainer" style="display:flex;justify-content:center;align-items:center;flex-direction: column;">
+    <div class="loginclass">
+        <h2>Log In</h2>
+        <form method="post" class="loginform">
+            {% csrf_token %}
+            {{ form|crispy }}
 
-    <button type="submit">Log In</button>
-</form>
-
+            <button type="submit" class="btn btn-primary">Log In</button>
+            <div class="createbtn">
+                <a href="{% url 'signup' %}">Create an Account!</a>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock content %}

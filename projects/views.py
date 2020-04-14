@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, ListView, DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from .models import Project
+from django.core.exceptions import PermissionDenied
 from .forms import ProjectForm
 from django.urls import reverse_lazy
 # Create your views here.
@@ -33,6 +34,15 @@ class ProjectCreateView(LoginRequiredMixin,CreateView):
      return super().form_valid(form)
 
 
+class ProjectUpdateView(LoginRequiredMixin, UpdateView):
+    model = Project
+    fields = '__all__'
+    template_name = 'project_edit.html'
+    login_url = 'login'
+    success_url = 'profile_project'
 
-
-
+    def dispatch(self, request, *args, **kwargs):
+        obj = self.get_object()
+        if obj.author != self.request.user:
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
