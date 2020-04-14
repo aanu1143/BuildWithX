@@ -3,29 +3,34 @@
 {% block content %}
 <div class="mycontainer">
     <div class="sidebar">
-        <a class="active" href="#home">About</a>
-        <a href="#news">Projects</a>
+        <a class="active" href="{% url 'profile_about' user.id %}">About</a>
+        <a href="{% url 'profile_project' user.id %}">Projects</a>
     </div>
+    {% block data %}
     <div class="myprofile">
         <div class="profilecard">
             <div class="profile">
                 <div class="myimgcont">
-                    <img src="{{ user.image.url }}" style="width: 100%; max-width: 150px; height: 100%; max-height: 100px;" alt="mypic">
+                    <img src="{{ user.image.url }}" style="width: 100%; max-width: 250px; height: 100%; max-height: 150px;"
+                        alt="mypic">
                 </div>
                 <div class="details">
                     <p style="margin: 0 0 0px;"> <b>{{ user.first_name }} {{ user.last_name }}</b></p>
                     <p> <b> @</b>{{ user.username }}</p>
-                    <p> <i class="glyphicon glyphicon-link"></i> {{ user.email }}</p>
                     <p> <b> About Me : </b>{{ user.bio }}</p>
-                    <p> <b> Site : </b>{{ user.site_url }}</p>
+                    <p> <b> Gender : </b>{{ user.gender }}</p>
+                    <p> <b> Date of Birth : </b>{{ user.dob }}</p>
+    
                 </div>
             </div>
             <div class="editbtn">
                 <div>
-                    <a href="{% url 'update' user.id %}"> <input type="button" class="btn btn-primary" value="Edit"> </a>
+                    <a href="{% url 'update' user.id %}"> <input type="button" class="btn btn-primary" value="Edit profile">
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+    {% endblock data %}
 </div>
 {% endblock %}

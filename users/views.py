@@ -1,7 +1,8 @@
 from django.urls import reverse_lazy
 from django.views.generic import CreateView,UpdateView
-from .forms import CustomUserCreationForm, UserForm
+from .forms import CustomUserCreationForm, UserForm, UpdateProfile
 from .models import CustomUser
+from projects.models import Project
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, ListView, DetailView
 from django.http import HttpResponseForbidden
@@ -21,9 +22,22 @@ class UserUpdateView(UpdateView):
     model = CustomUser
     success_url = reverse_lazy('home')
     template_name = 'user_update.html'
-    fields = ['username', 'bio', 'image', 'site_url'] # You can also create form in forms.py and use it here instead of this step
+    form_class = UpdateProfile
 
 class ProfileDetailView(LoginRequiredMixin,DetailView):
     model = CustomUser
     form_class = UserForm
     template_name = 'profile_detail.html'
+
+class ProfileAboutView(LoginRequiredMixin,DetailView):
+    model = CustomUser
+    form_class = UserForm
+    template_name = 'profile_about.html'
+
+
+class ProfileProjectView(LoginRequiredMixin, ListView):
+  model = Project
+  template_name = 'profile_project.html'
+
+  def get_queryset(self):
+        return Project.objects.filter(user=1)

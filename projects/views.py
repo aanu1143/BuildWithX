@@ -3,8 +3,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import CreateView
 from .models import Project
-from users.models import CustomUser
-from users.forms import UserForm
 from .forms import ProjectForm
 from django.urls import reverse_lazy
 # Create your views here.
@@ -33,3 +31,8 @@ class ProjectCreateView(LoginRequiredMixin,CreateView):
    def form_valid(self,form): #if form is valid
      form.instance.user = self.request.user
      return super().form_valid(form)
+
+
+
+
+
