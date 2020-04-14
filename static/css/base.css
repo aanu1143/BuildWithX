@@ -2,47 +2,49 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 18px;
 }
-#buildname {
+.buildname {
     color: rgb(145, 145, 145);
 }
-#buildname:hover {
+.buildname:hover {
     color: black;
 }
 
 
-#id1 {
+.id1 {
     color: rgb(248, 25, 129);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-#id2 {
+.id2 {
     border-bottom: 2px solid rgb(88, 86, 86);
     border-radius: 5px;
     background-color: beige;
     padding: 10px;
+    height:200px;
 }
 
-#id3 {
+.id3 {
     border: 1px solid rgb(88, 86, 86);
     border-radius: 5px;
-    box-shadow: 5px 10px 8px 10px #dbdada;
     transition: 0.5s ease;
+    width:100%;
+    max-width: 450px;
 }
-#id3:hover {
+.id3:hover {
     border: 2px solid rgb(223, 219, 219);
     padding: 4px;
     
 } 
-#id3 a:hover {
+.id3 a:hover {
     text-decoration: none;
 }
 
-#id4 {
+.id4 {
     border-top: 1px solid rgb(214, 212, 212);
     padding-top: 12px;
 }
 
-#id5 {
+.id5 {
     border: 1px solid rgb(216, 213, 213);
     border-radius: 5px 10px 5px;
     margin: 15px;
@@ -50,7 +52,6 @@ body {
 }
 
 #footer {
-   position: fixed;
    left: 0;
    bottom: 0;
    padding-top: 4px;
@@ -132,4 +133,8 @@ body {
 
 .xbuild {
     color: red;
+}
+
+.main{
+    margin: 50px 0px;
 }
