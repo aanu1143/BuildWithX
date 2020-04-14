@@ -21,7 +21,7 @@ class UserUpdateView(UpdateView):
     model = CustomUser
     success_url = reverse_lazy('home')
     template_name = 'user_update.html'
-    fields = ['username','bio','image'] #You can also create form in forms.py and use it here instead of this step
+    fields = ['username', 'bio', 'image', 'site_url'] # You can also create form in forms.py and use it here instead of this step
 
 class ProfileDetailView(LoginRequiredMixin,DetailView):
     model = CustomUser
