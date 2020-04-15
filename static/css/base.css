@@ -1,5 +1,5 @@
 body {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: Nunito,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
     font-size: 18px;
 }
 #buildname {
@@ -16,11 +16,13 @@ body {
 }
 
 .id2 {
-    border-bottom: 2px solid rgb(88, 86, 86);
+    border-bottom: 1px solid rgb(88, 86, 86);
+    border-top: 1px solid;
     border-radius: 5px;
-    background-color: beige;
+    background-color: rgb(245, 238, 255);
     padding: 10px;
     height:200px;
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
 }
 
 .id3 {
@@ -383,4 +385,67 @@ div.projectclass {
 .addprobtn {
     justify-content: center;
     display: flex;
+}
+.signuppage {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column; 
+    position: absolute; 
+    left: 30%; 
+    top: 20%;
+}
+
+
+@media screen and (max-width: 700px) {
+div.signuppage {
+    position: absolute;
+    left: 2%;
+    top: 20%;
+
+}
+}
+
+.passcont {
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    max-height: 600px;
+    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+}
+
+.userupdate {
+    display: flex;
+    position: absolute;
+    left: 30%;
+    top: 20%;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+}
+
+.updatepage {
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 100%;
+    height: 800px;
+    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+}
+
+.updateform {
+    height: 100%;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 200px;
+}
+@media screen and (max-width: 700px) {
+div.userupdate {
+    position: absolute;
+    left: 2%;
+    top: 30%;
+  }
 }

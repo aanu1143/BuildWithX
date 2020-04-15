@@ -4,11 +4,14 @@
 {% block title %}Update Profile{% endblock title %}
 
 {% block content %}
-<h2>Update Profile</h2>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit">Update</button>
-</form>
-
+<div class="userupdate">
+    <div class="updatepage">
+        <h2>Update Profile</h2>
+        <form method="post" class="updateform" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</div>
 {% endblock content %}
