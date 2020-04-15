@@ -1,0 +1,13 @@
+{% extends 'profile_detail.html' %}
+
+{% block data %}
+<div class="projectclass">
+    <h2>{{ object.project_name }}</h2>
+    <p> <b> URL: </b> <a href="{{ object.url }}">{{ object.url }} </a></p>
+    <p> <b> Description: </b>{{ object.description }}</p>
+    <p> <b> Publish Date: </b>{{ object.date }}</p>
+    <p><a href="{% url 'edit_project' project.id %}"><input type="button" value="Edit"></a>
+        <a href="{% url 'delete_project' project.id %}"><input type="button" value="Delete"></a>
+    </p>
+</div>
+{% endblock data %}

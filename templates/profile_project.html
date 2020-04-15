@@ -1,26 +1,22 @@
 {% extends 'profile_detail.html' %}
-\
+
 {% block title %}Update Profile{% endblock title %}
 
 {% block data %}
-    <div class="jumbotron home">
-        <div style="display:flex;align-items: center;flex-direction: column;">
-            <h2 class="id1 display-4" style="color: black;" >My Projects </h2>
-        </div>
-        <div style="display:grid; margin-left: 50px; margin-top: 50px; justify-content:space-around;">
+    <div class="projectclass">
+        <h2>My Project</h2>
             {% for project in object_list %}
             <div class="myproject">
-                <a href="">
-                    <div>
-                        <p>{{ project.project_name }} 
-                            <a href="{{ edit_project }}"> <input type="button" value="Edit"> </a> 
-                            <a href="{{ project.url }}"><input type="button" value="View"></a> 
-                        </p>
-                        
+                    <div class="projectstyle">
+                       <a href="{% url 'project_detail' project.id %}" class="projectlist"><p>{{ project.project_name }} </p></a>
+                            <div class="projectedit">
+                                <a href="{% url 'edit_project' project.id %}"> <input type="button" value="Edit"> </a>
+                                <a href="{{ project.url }}"><input type="button" value="View"></a> 
+                                <a href="{% url 'delete_project' project.id %}"><input type="button" value="Delete"></a>
+                            </div>
                     </div>
-                </a>
             </div>
             {% endfor %}
-        </div>
+            <a href="{% url 'new_project' %}" class="addprobtn"><span class="glyphicon glyphicon-plus"></span>Add more</a>
     </div>
 {% endblock data %}

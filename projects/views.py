@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, ListView, DetailView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Project
 from django.core.exceptions import PermissionDenied
 from .forms import ProjectForm
 from django.urls import reverse_lazy
-# Create your views here.
+
 
 class HomeView(ListView):
     template_name = 'home.html'
@@ -36,13 +36,35 @@ class ProjectCreateView(LoginRequiredMixin,CreateView):
 
 class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     model = Project
-    fields = '__all__'
+    fields = ('project_name', 'description', 'url', 'website_image', 'build_with')
     template_name = 'project_edit.html'
     login_url = 'login'
-    success_url = 'profile_project'
 
     def dispatch(self, request, *args, **kwargs):
         obj = self.get_object()
-        if obj.author != self.request.user:
+        if obj.user != self.request.user:
             raise PermissionDenied
         return super().dispatch(request, *args, **kwargs)
+
+
+class ProjectDeleteView(LoginRequiredMixin, DeleteView):
+    model = Project
+    template_name = 'project_delete.html'
+    login_url = 'login'
+
+    def get_success_url(self):
+          # if you are passing 'pk' from 'urls' to 'DeleteView' for company
+          # capture that 'pk' as companyid and pass it to 'reverse_lazy()' function
+          projectid = self.kwargs['pk']
+          return reverse_lazy('profile_project', kwargs={'pk': projectid})
+
+    def dispatch(self, request, *args, **kwargs):
+        obj = self.get_object()
+        if obj.user != self.request.user:
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
+
+class ProjectDetailView(LoginRequiredMixin, DetailView):
+    model = Project
+    template_name = 'project_detail.html'
+    login_url = 'login'

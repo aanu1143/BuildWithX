@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.conf import settings
-import datetime
+from django.urls import reverse
 
 types = (
     ('developer', 'Developer'),
@@ -23,6 +23,9 @@ class Project(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     user_type = models.CharField(max_length=25,choices=types, null=True)
 
+
+    def get_absolute_url(self):
+        return reverse('profile_project', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.project_name

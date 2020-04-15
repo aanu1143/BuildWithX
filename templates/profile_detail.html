@@ -6,8 +6,8 @@
         <a class="active" href="{% url 'profile_about' user.id %}">About</a>
         <a href="{% url 'profile_project' user.id %}">Projects</a>
     </div>
-    {% block data %}
     <div class="myprofile">
+    {% block data %}
         <div class="profilecard">
             <div class="profile">
                 <div class="myimgcont">
@@ -30,7 +30,8 @@
                 </div>
             </div>
         </div>
-    </div>
+   
     {% endblock data %}
+    </div>
 </div>
 {% endblock %}
