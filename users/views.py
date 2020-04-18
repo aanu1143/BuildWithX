@@ -29,10 +29,20 @@ class ProfileDetailView(LoginRequiredMixin,DetailView):
     form_class = UserForm
     template_name = 'profile_detail.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(ProfileDetailView, self).get_context_data(**kwargs)
+        context['page']='detail'
+        return context
+
 class ProfileAboutView(LoginRequiredMixin,DetailView):
     model = CustomUser
     form_class = UserForm
     template_name = 'profile_about.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProfileAboutView, self).get_context_data(**kwargs)
+        context['page']= 'about'
+        return context
 
 
 class ProfileProjectView(LoginRequiredMixin, ListView):
@@ -40,4 +50,4 @@ class ProfileProjectView(LoginRequiredMixin, ListView):
   template_name = 'profile_project.html'
 
   def get_queryset(self):
-        return Project.objects.filter(user=1)
+        return Project.objects.filter(user=self.request.user)

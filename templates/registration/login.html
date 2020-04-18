@@ -12,10 +12,15 @@
             {{ form|crispy }}
 
             <button type="submit" class="btn btn-primary">Log In</button>
-            <div class="createbtn">
-                <p style="font-size: 15px;">Not have an Account? </p>
-                
-                <a href="{% url 'signup' %}"> Create an Account!</a>
+            <div style="padding-top: 70px">
+                <div class="createbtn">
+                    <p style="font-size: 15px;">Not have an Account? </p>
+                    <a href="{% url 'signup' %}"> Create an Account!</a>
+                </div>
+                <div class="createbtn">
+                    <p style="font-size: 15px;">Forget password? </p>
+                    <a href="{% url 'password_reset' %}"> Reset password </a>
+                </div>
             </div>
         </form>
     </div>

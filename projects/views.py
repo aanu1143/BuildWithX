@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Project
+from .models import Project, Framework
 from django.core.exceptions import PermissionDenied
 from .forms import ProjectForm
 from django.urls import reverse_lazy
@@ -12,10 +12,14 @@ class HomeView(ListView):
     template_name = 'home.html'
     model = Project
 
+    def get_context_data(self, **kwargs):
+        context = super(HomeView, self).get_context_data(**kwargs)
+        context['framworks'] = Framework.objects.all()
+        return context
+
     def get_queryset(self):
         search_tag = self.request.GET.get('search','')
         return Project.objects.filter(project_name__contains=search_tag)
-
 
 
 class ProjectCreateView(LoginRequiredMixin,CreateView):

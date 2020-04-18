@@ -3,8 +3,13 @@
 {% block content %}
 <div class="mycontainer">
     <div class="sidebar">
-        <a class="active" href="{% url 'profile_about' user.id %}">About</a>
-        <a href="{% url 'profile_project' user.id %}">Projects</a>
+        {% if page == 'about' %}
+            <a class="active" href="{% url 'profile_about' user.id %}">About</a>
+            <a href="{% url 'profile_project' user.id %}">Projects</a>
+        {% else %}
+            <a href="{% url 'profile_about' user.id %}">About</a>
+            <a class="active" href="{% url 'profile_project' user.id %}">Projects</a>
+        {% endif %}
     </div>
     <div class="myprofile">
     {% block data %}
