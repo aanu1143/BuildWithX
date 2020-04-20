@@ -6,6 +6,7 @@ from .models import Project, Framework
 from django.core.exceptions import PermissionDenied
 from .forms import ProjectForm
 from django.urls import reverse_lazy
+from django.db.models import Q
 
 
 class HomeView(ListView):
@@ -14,12 +15,18 @@ class HomeView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
-        context['framworks'] = Framework.objects.all()
+        context['frameworks'] = Framework.objects.all()
         return context
 
     def get_queryset(self):
-        search_tag = self.request.GET.get('search','')
-        return Project.objects.filter(project_name__contains=search_tag)
+        search_tag = self.request.GET.get('search','').lower()
+        framework = self.request.GET.get('framework','all')
+        data = Project.objects.all()
+        if framework != 'all':
+           data = data.filter(build_with__language=framework)
+        if search_tag:
+           data = data.filter(Q(project_name__icontains=search_tag) | Q(build_with__language__icontains=search_tag) | Q(description__icontains=search_tag) )
+        return data
 
 
 class ProjectCreateView(LoginRequiredMixin,CreateView):

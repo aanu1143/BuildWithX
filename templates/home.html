@@ -3,7 +3,6 @@
 {% block title %}Home{% endblock title %}
 
 {% block search %}
-
 <form class="navbar-form navbar-left">
     <div class="input-group">
         <input type="text" class="form-control" placeholder="Search" name="search">
@@ -17,29 +16,30 @@
 {% endblock search %}
 
 {% block content %}
+<div class="home_background"></div>
 <div class="home">
-        <h2 style="font-size:12vw">Build With X </h2>
+        <h2 style="font-size:12vw">Built With X </h2>
         <p style="font-size:3.5vw">A platform to submit your projects.</p>
 </div>
+
+
+
 <div>
-    <div class="filter">
-        <ul class="nav navbar-nav navbar-right" style="border: 1px solid black; padding-left: 20px; margin-right: 10px; padding-right: 20px;">
-            <li class="nav-item" id="account">
-                <a class="dropicon" href="" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="glyphicon glyphicon-filter"></span>  Filter</a>
-                <ul class="dropdown-menu dropdown-menu-right">
-                    <li class="dropdown-item listitem"><button type="submit" style="border: none; background-color: white;">
-                        <span style="color: black; background-color: white;">All</span>
-                    </button></li>
-                    {% for lang in framworks %}
-                        <div class="dropdown-divider"></div>
-                        <li class="dropdown-item listitem"><button type="submit" style="border: none; background-color: white;" ><span style="color: black; background-color: white;">{{ lang.language }}</span></button></li>
-                    {% endfor %}
-                </ul>
-            </li>
-        </ul>
-    </div>    
-    <div style="display:flex; flex-wrap:wrap; margin: 20px; justify-content:space-around;">
+
+<div id="filter">
+        <form action="" class="search_form">
+        <input type="text" style="width:50%" class="form-control" placeholder="Search" id="search" name="search">
+        <select name="framework" id="framework" style="width:30%" class="form-control" id="framework">
+            <option value="all" selected>All</option>
+            {% for lang in frameworks %}
+                <option value="{{lang.language}}">{{lang.language}}</option>
+            {% endfor %}
+        </select>
+        <button class="btn btn-primary" style="margin-top:10px">Filter</button>
+        </form>
+</div>    
+<div class="projects">
+<div style="display:flex; flex-wrap:wrap; margin: 20px; justify-content:space-around;">
     {% for project in object_list %}
         <div class="id3" style="margin: 10px;">
             <a href="{{ project.url }} " target="_blank">
@@ -58,4 +58,18 @@
     {% endfor %}
     </div>
 </div>
+
+</div>
+<script>
+    //this code will make the page scroll to filter part if a form is submitted
+    const queryString = window.location.search
+    const urlParams = new URLSearchParams(queryString);
+    const search = urlParams.get('search')
+    const framework = urlParams.get('framework')
+    if(search || framework){
+        document.getElementById('search').value = search
+        document.getElementById('framework').value = framework
+        document.getElementById('filter').scrollIntoView();
+    }
+</script>
 {% endblock content %}
