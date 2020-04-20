@@ -17,7 +17,11 @@
 {% endblock search %}
 
 {% block content %}
-<div class="jumbotron home">
+<div class="home">
+        <h2 style="font-size:12vw">Build With X </h2>
+        <p style="font-size:3.5vw">A platform to submit your projects.</p>
+</div>
+<div>
     <div class="filter">
         <ul class="nav navbar-nav navbar-right" style="border: 1px solid black; padding-left: 20px; margin-right: 10px; padding-right: 20px;">
             <li class="nav-item" id="account">
@@ -34,12 +38,7 @@
                 </ul>
             </li>
         </ul>
-    </div>
-    <div style="display:flex;align-items: center;flex-direction: column;">
-        <h2  class="id1 display-4">Build With X </h2>
-        <p class="lead">A platform to submit your projects.</p>
-    </div>
-    
+    </div>    
     <div style="display:flex; flex-wrap:wrap; margin: 20px; justify-content:space-around;">
     {% for project in object_list %}
         <div class="id3" style="margin: 10px;">

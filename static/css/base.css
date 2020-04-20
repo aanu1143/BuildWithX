@@ -1,7 +1,3 @@
-body {
-    font-family: Nunito,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
-    font-size: 18px;
-}
 #buildname {
     color: rgb(145, 145, 145);
 }
@@ -55,7 +51,6 @@ body {
 }
 
 #footer {
-    position: fixed;
    left: 0;
    bottom: 0;
    padding-top: 4px;
@@ -87,8 +82,11 @@ body {
     margin-top: -20px;
 }
 .home {
-    margin-top: -10px;
-    padding-top: -10px;
+    height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .circle {
     padding-left: 25%;
