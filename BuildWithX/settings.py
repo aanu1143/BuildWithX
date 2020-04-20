@@ -107,6 +107,7 @@ AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+LOGIN_URL = 'login'
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 

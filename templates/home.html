@@ -18,7 +18,7 @@
 {% block content %}
 <div class="home_background"></div>
 <div class="home">
-        <h2 style="font-size:12vw">Built With X </h2>
+        <h2 style="font-size:12vw">Built With X.</h2>
         <p style="font-size:3.5vw">A platform to submit your projects.</p>
 </div>
 
@@ -41,17 +41,25 @@
 <div class="projects">
 <div style="display:flex; flex-wrap:wrap; margin: 20px; justify-content:space-around;">
     {% for project in object_list %}
-        <div class="id3" style="margin: 10px;">
+        <div class="card_container" style="margin: 10px;">
             <a href="{{ project.url }} " target="_blank">
-                <img src="{{ project.website_image.url }}" style="height:300px;width:100%;max-width:450px;" alt="error_img">
+                <img src="{{ project.website_image.url }}" style="height:250px;width:100%;max-width:450px;" alt="error_img">
             </a>
-            <div class="id2">
-                <a href="{{ project.url }}" target="_blank"><h2> {{ project.project_name }}</h2></a>
+            <div class="card_details">
+                <a href="{{ project.url }}" target="_blank"><h2 style="margin-top:0px"> {{ project.project_name }}</h2></a>
                 <p>{{ project.description }}</p>
-                <div class="id4">
+                <div class="card_url">
                     <a href="{{ project.url }}" target="_blank" class="id5"><i class="glyphicon glyphicon-link"></i></a>
-                    <span style="display: list-item;">{% for lang in project.build_with.all %}{{ lang }}{% endfor %} </br><i>@{{ project.user }}</i> </span>
-                    
+                    <div style="display:flex;flex-direction:column;">
+                    <div style="display:flex;">
+                    {% for lang in project.build_with.all %}
+                    <b>{{ lang }}</b>
+                    {% endfor %} 
+                    </div>
+                    <div>
+                      <a href="{% url 'profile_detail' project.user.id %}">@{{ project.user }}</a>
+                    </div>
+                     </div>
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@ GENDER_CHOICES = (
 
 
 class CustomUser(AbstractUser):
-    site_url = models.CharField(max_length=200, null=True)
+    site_url = models.CharField(max_length=200, null=True,blank=True)
     bio = models.CharField(max_length=50, null=True)
     dob = models.DateField(auto_now=False, null=True)
     contact_number = models.CharField(max_length=10, null=True)

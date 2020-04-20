@@ -46,8 +46,8 @@ class ProfileAboutView(LoginRequiredMixin,DetailView):
 
 
 class ProfileProjectView(LoginRequiredMixin, ListView):
-  model = Project
-  template_name = 'profile_project.html'
+    model = Project
+    template_name = 'profile_project.html'
 
-  def get_queryset(self):
+    def get_queryset(self):
         return Project.objects.filter(user=self.request.user)
