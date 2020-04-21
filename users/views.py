@@ -31,7 +31,7 @@ class ProfileDetailView(LoginRequiredMixin,DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ProfileDetailView, self).get_context_data(**kwargs)
-        context['page']='detail'
+        context['page']='about'
         return context
 
 class ProfileAboutView(LoginRequiredMixin,DetailView):
@@ -51,3 +51,7 @@ class ProfileProjectView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return Project.objects.filter(user=self.request.user)
+    def get_context_data(self, **kwargs):
+        context = super(ProfileProjectView, self).get_context_data(**kwargs)
+        context['page']= 'detail'
+        return context
