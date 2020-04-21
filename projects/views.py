@@ -34,11 +34,9 @@ class ProjectCreateView(LoginRequiredMixin,CreateView):
    template_name = 'project_new.html'
    form_class = ProjectForm
    login_url = 'login'
-   success_url = reverse_lazy('home')
 
-   def get_form_kwargs(self, *args, **kwargs):
-        kwargs = super(ProjectCreateView, self).get_form_kwargs(*args, **kwargs)
-        return kwargs
+   def get_success_url(self):
+        return reverse_lazy('profile_detail', kwargs={'pk': self.request.user.id})
 
    def form_valid(self,form): #if form is valid
      form.instance.user = self.request.user
@@ -50,6 +48,9 @@ class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     fields = ('project_name', 'description', 'url', 'website_image', 'build_with')
     template_name = 'project_edit.html'
     login_url = 'login'
+
+    def get_success_url(self):
+        return reverse_lazy('profile_detail', kwargs={'pk': self.request.user.id})
 
     def dispatch(self, request, *args, **kwargs):
         obj = self.get_object()
@@ -64,10 +65,7 @@ class ProjectDeleteView(LoginRequiredMixin, DeleteView):
     login_url = 'login'
 
     def get_success_url(self):
-          # if you are passing 'pk' from 'urls' to 'DeleteView' for company
-          # capture that 'pk' as companyid and pass it to 'reverse_lazy()' function
-          projectid = self.kwargs['pk']
-          return reverse_lazy('profile_project', kwargs={'pk': projectid})
+          return reverse_lazy('profile_detail', kwargs={'pk': self.request.user.id})
 
     def dispatch(self, request, *args, **kwargs):
         obj = self.get_object()

@@ -5,6 +5,9 @@
     color: black;
 }
 
+body{
+    overflow-x: hidden;
+}
 
 .id1 {
     color: rgb(248, 25, 129);
@@ -14,7 +17,6 @@
 .card_details {
     border-radius: 5px;
     padding: 10px;
-    height:150px;
 }
 
 .card_container {
@@ -36,6 +38,7 @@
 .card_url {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border-top: 1px solid rgb(214, 212, 212);
     padding-top: 10px;
 }
@@ -53,9 +56,12 @@
    padding-bottom: 5px;
    width: 100%;
    background-color: rgb(49, 48, 48);
-   color: rgb(55, 217, 238);
    text-align: center;
    font-family: 'Courier New', Courier, monospace;
+}
+
+#footer a{
+    color:white;
 }
 
 .special{
@@ -199,23 +205,26 @@ div.content {
 .myprofile {
     display: flex; 
     flex-wrap: wrap;
-    justify-content: space-around;
-    height: 100vh;
+    justify-content:center;
+    align-items:center;
+    height: calc(100vh - 70px);
     background-color: white;
-    background-image: url("/media/img/bgpic.jpg");
     background-repeat: repeat-y;
 }
 .profilecard {
+    border: 0.5px solid #ece8e8;
     border-radius: 5px;
-    box-shadow: 0px 0px 30px -2px rgba(0,0,0,0.75);
-    margin-top: 50px;
     width: 100%;
     max-width: 350px;
-    height: 100%;
-    max-height: 350px;
+    padding:20px;
     justify-content: center;
     background-color: white;
 }
+
+.profilecard:hover{
+    box-shadow: 5px 5px 10px 0px rgb(234, 232, 232);
+}
+
 .profile {
     padding: 0px;
     display: flex;
@@ -241,9 +250,39 @@ div.content {
     color: black;
 }
 
+
+.project_list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bio{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+}
+
+.bio_item{
+    display: flex;
+    justify-content: space-between;
+}
+
 .myimgcont {
     width: 100%;
     max-width: 200px;
+    height:200px;
+    border-radius: 50%;
+    border:0.5px solid #ece8e8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.myimgcont:hover{
+    box-shadow: 5px 5px 10px 0px rgb(234, 232, 232);
 }
 
 .editbtn {
@@ -330,18 +369,33 @@ a:hover {
     text-decoration: none;
 }
 
+.delete_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height:100vh;
+}
+
 .projectclass {
-    position: absolute;
-    left: 30%;
-    top: 20%;
-    right: 30%;
     width: 100%;
     max-width: 500px;
-    border: 1px solid rgb(141, 139, 139);
+    border: 0.5px solid #ece8e8;
     border-radius: 15px;
     padding: 20px;
     background: white;
-    box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.75);
+}
+
+.projectclass:hover{
+    box-shadow: 5px 5px 10px 0px rgb(234, 232, 232);
+}
+
+.project_container{
+    display: flex;
+    flex-wrap: wrap;
+    margin:20px;
+    justify-content: center;
+    width:100%;
 }
 
 .myproject {
@@ -376,20 +430,19 @@ div.projectclass {
 
 }
 
-.editproclass {
-    box-shadow: 2px 3px 21px 3px rgba(0,0,0,0.75);
+.project_edit {
     border-radius: 10px;
     width: 100%;
     max-width: 500px;
-    height: 1000px;
-    margin-bottom: 100px;
-    margin-top: 150px;
+    margin: 100px 0px;
+    border: 0.5px solid #ece8e8;
 }
-.editproclass h2 {
+.project_edit h2 {
     font-size: 30px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
+    text-align: center;
+}
+.project_edit:hover{
+    box-shadow: 5px 5px 10px 0px rgb(234, 232, 232);
 }
 
 .projectlist {
@@ -409,49 +462,44 @@ div.projectclass {
 
 .passcont {
     padding: 20px;
-    border: 1px solid black;
+    border: 0.5px solid #ece8e8;
     border-radius: 20px;
     width: 100%;
     max-width: 500px;
     height: 100%;
     max-height: 600px;
-    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+}
+
+.passcont:hover{
+    box-shadow: 5px 5px 10px 0px rgb(234, 232, 232);
 }
 
 .userupdate {
     display: flex;
-    position: absolute;
-    left: 30%;
-    top: 20%;
-    right: 30%;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    max-width: 400px;
     height: 100%;
+    margin: 100px 0px;
 }
 
 .updatepage {
     padding: 20px;
-    border: 1px solid black;
+    border: 0.5px solid #ece8e8;
     border-radius: 20px;
     width: 100%;
-    height: 800px;
-    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+    max-width: 400px;
+}
+
+.updatepage:hover{
+    box-shadow: 5px 5px 10px 0px rgb(234, 232, 232);
 }
 
 .updateform {
     height: 100%;
     width: 100%;
-    max-width: 500px;
-    margin-bottom: 200px;
 }
-@media screen and (max-width: 700px) {
-div.userupdate {
-    position: absolute;
-    left: 8%;
-    right: 8%;
-    top: 30%;
-  }
-}
+
 
 .resetform {
     display: flex;

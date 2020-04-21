@@ -4,7 +4,7 @@ from .models import Project,types
 
 class ProjectForm(ModelForm):
     website_image = forms.FileField()
-    description = forms.CharField(widget=forms.Textarea(attrs={'class': 'special'}))
+    description = forms.CharField(widget=forms.Textarea(attrs={'class': 'special','maxlength':'100'}))
     user_type = forms.ChoiceField(widget=forms.RadioSelect, choices=types)
     class Meta:
         model = Project

@@ -7,6 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, ListView, DetailView
 from django.http import HttpResponseForbidden
 from django.shortcuts import redirect
+from django.core.exceptions import PermissionDenied
 
 class SignUpView(CreateView):
     form_class = CustomUserCreationForm
@@ -18,40 +19,29 @@ class SignUpView(CreateView):
             return redirect('home')
         return super().get(request, *args, **kwargs)
 
-class UserUpdateView(UpdateView):
+class UserUpdateView(LoginRequiredMixin,UpdateView):
     model = CustomUser
-    success_url = reverse_lazy('home')
     template_name = 'user_update.html'
     form_class = UpdateProfile
 
-class ProfileDetailView(LoginRequiredMixin,DetailView):
+    def get_success_url(self):
+        return reverse_lazy('profile_detail', kwargs={'pk': self.request.user.id})
+
+    def get(self, request, *args, **kwargs):
+        if request.user != self.get_object():
+            raise PermissionDenied
+        return super().get(request, *args, **kwargs)
+
+
+class ProfileDetailView(DetailView):
     model = CustomUser
     form_class = UserForm
     template_name = 'profile_detail.html'
 
     def get_context_data(self, **kwargs):
+        user = kwargs['object']
+        ProjectData = Project.objects.filter(user=user)
         context = super(ProfileDetailView, self).get_context_data(**kwargs)
-        context['page']='about'
-        return context
-
-class ProfileAboutView(LoginRequiredMixin,DetailView):
-    model = CustomUser
-    form_class = UserForm
-    template_name = 'profile_about.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(ProfileAboutView, self).get_context_data(**kwargs)
-        context['page']= 'about'
-        return context
-
-
-class ProfileProjectView(LoginRequiredMixin, ListView):
-    model = Project
-    template_name = 'profile_project.html'
-
-    def get_queryset(self):
-        return Project.objects.filter(user=self.request.user)
-    def get_context_data(self, **kwargs):
-        context = super(ProfileProjectView, self).get_context_data(**kwargs)
-        context['page']= 'detail'
+        context['projects_build'] =  ProjectData.filter(user_type='developer')
+        context['projects_found'] = ProjectData.filter(user_type='finder')
         return context

@@ -1,11 +1,14 @@
-{% extends 'profile_detail.html' %}
+{% extends 'base.html' %}
 
-{% block data %}
+{% block content %}
+<div class="delete_container">
 <div class="projectclass">
     <h1>Delete</h1>
-    <form action="" method="post">{% csrf_token %}
+    <form action="" method="post">
+    	{% csrf_token %}
         <p>Are you sure you want to delete "{{ project.project_name }}"?</p>
         <button class="btn btn-danger ml-2" type="submit">Confirm</button>
     </form>
 </div>
-{% endblock data %}
+</div>
+{% endblock content %}

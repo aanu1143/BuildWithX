@@ -39,7 +39,7 @@
         </form>
 </div>    
 <div class="projects">
-<div style="display:flex; flex-wrap:wrap; margin: 20px; justify-content:space-around;">
+<div class="project_container">
     {% for project in object_list %}
         <div class="card_container" style="margin: 10px;">
             <a href="{{ project.url }} " target="_blank">
@@ -49,11 +49,17 @@
                 <a href="{{ project.url }}" target="_blank"><h2 style="margin-top:0px"> {{ project.project_name }}</h2></a>
                 <p>{{ project.description }}</p>
                 <div class="card_url">
+                    <div>
                     <a href="{{ project.url }}" target="_blank" class="id5"><i class="glyphicon glyphicon-link"></i></a>
+                    {% if request.user.is_authenticated and request.user == project.user %}
+                    <a href="{% url 'edit_project' project.id %}" class="id5"><i class="glyphicon glyphicon-pencil"></i></a>
+                    <a href="{% url 'delete_project' project.id %}" class="id5"><i class="glyphicon glyphicon-trash"></i></a>
+                    {% endif %} 
+                    </div>
                     <div style="display:flex;flex-direction:column;">
                     <div style="display:flex;">
                     {% for lang in project.build_with.all %}
-                    <b>{{ lang }}</b>
+                    <b>{{ lang }} </b>
                     {% endfor %} 
                     </div>
                     <div>

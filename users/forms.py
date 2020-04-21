@@ -47,7 +47,7 @@ class UpdateProfile(ModelForm):
     gender = forms.ChoiceField(widget=forms.RadioSelect, choices=GENDER_CHOICES)
     class Meta:
         model = CustomUser
-        fields = ('first_name', 'last_name', 'email',
+        fields = ('first_name', 'last_name','image', 'email',
                   'contact_number', 'bio', 'site_url', 'dob', 'gender')
         labels = {
             'dob': ('D.O.B'),
