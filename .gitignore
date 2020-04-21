@@ -2,3 +2,6 @@ __pycache__
 media
 local_settings.py
 db.sqlite3
+
+*/migrations/
+migrations/
