@@ -318,7 +318,6 @@ div.content {
     padding: 20px;
 }
 .loginform button {
-    margin-left: 40%;
     margin-top: 5%;
 }
 
@@ -393,7 +392,6 @@ a:hover {
 .project_container{
     display: flex;
     flex-wrap: wrap;
-    margin:20px;
     justify-content: center;
     width:100%;
 }
