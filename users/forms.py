@@ -1,37 +1,18 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.forms import ModelForm
-from .models import CustomUser, GENDER_CHOICES
+from .models import CustomUser
 from django.contrib.auth.models import User
-from django.forms.widgets import DateInput
 
 class CustomUserCreationForm(UserCreationForm):
-    gender = forms.ChoiceField(widget=forms.RadioSelect, choices=GENDER_CHOICES)
     class Meta(UserCreationForm.Meta):
         model = CustomUser
-        fields = ('username', 'first_name', 'last_name', 'email',
-                  'contact_number', 'bio', 'image','site_url', 'dob', 'gender')
-        labels = {
-            'dob': ('D.O.B'),
-        }
-        widgets = {
-            'dob': DateInput(attrs={'type': 'date'})
-        }
+        fields = ('username', 'first_name', 'last_name', 'email', 'bio', 'image')
 
 class CustomUserChangeForm(UserChangeForm):
-    gender = forms.ChoiceField(
-            widget=forms.RadioSelect, choices=GENDER_CHOICES)
     class Meta:
         model = CustomUser
-        fields = ('first_name', 'last_name', 'email',
-                  'contact_number', 'bio', 'site_url', 'dob', 'gender')
-        labels = {
-            'dob': ('D.O.B'),
-        }
-        widgets = {
-            'dob': DateInput(attrs={'type': 'date'})
-        }
-
+        fields = ('first_name', 'last_name', 'email', 'bio')
 
 class UserForm(ModelForm):
     class Meta:
@@ -44,14 +25,6 @@ class UserForm(ModelForm):
 
 
 class UpdateProfile(ModelForm):
-    gender = forms.ChoiceField(widget=forms.RadioSelect, choices=GENDER_CHOICES)
     class Meta:
         model = CustomUser
-        fields = ('first_name', 'last_name','image', 'email',
-                  'contact_number', 'bio', 'site_url', 'dob', 'gender')
-        labels = {
-            'dob': ('D.O.B'),
-        }
-        widgets = {
-            'dob': DateInput(attrs={'type': 'date'})
-        }
+        fields = ('first_name', 'last_name','image', 'email', 'bio')
