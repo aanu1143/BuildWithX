@@ -40,7 +40,7 @@ class ProfileDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         user = kwargs['object']
-        ProjectData = Project.objects.filter(user=user)
+        ProjectData = Project.objects.filter(user=user).order_by('-id')
         context = super(ProfileDetailView, self).get_context_data(**kwargs)
         context['projects_build'] =  ProjectData.filter(user_type='developer')
         context['projects_found'] = ProjectData.filter(user_type='finder')

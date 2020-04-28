@@ -21,7 +21,7 @@ class HomeView(ListView):
     def get_queryset(self):
         search_tag = self.request.GET.get('search','').lower()
         framework = self.request.GET.get('framework','all')
-        data = Project.objects.all()
+        data = Project.objects.all().order_by('-id')
         if framework != 'all':
            data = data.filter(build_with__language=framework)
         if search_tag:
