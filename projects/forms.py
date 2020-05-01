@@ -8,5 +8,5 @@ class ProjectForm(ModelForm):
     user_type = forms.ChoiceField(widget=forms.RadioSelect, choices=types)
     class Meta:
         model = Project
-        fields = ['project_name','build_with','website_image','url','user_type','description']
+        fields = ['project_name','build_with','website_image','url', 'git_url','user_type','description']
 

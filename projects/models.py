@@ -22,6 +22,7 @@ class Project(models.Model):
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='profileuser', null=True)
     date = models.DateTimeField(auto_now_add=True)
     user_type = models.CharField(max_length=25,choices=types, null=True)
+    git_url = models.URLField(max_length=200, null=True, blank=True)
 
 
     def get_absolute_url(self):

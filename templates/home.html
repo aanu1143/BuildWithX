@@ -51,6 +51,9 @@
                 <div class="card_url">
                     <div>
                     <a href="{{ project.url }}" target="_blank" class="id5"><i class="glyphicon glyphicon-link"></i></a>
+                    {% if project.git_url %}
+                    <a href="{{ project.git_url }}" target="_blank" class="id5" style="padding-left: 0px; padding-right: 0px;"><img src="https://img.icons8.com/nolan/30/github.png" /></a>
+                    {% endif %}
                     {% if request.user.is_authenticated and request.user == project.user %}
                     <a href="{% url 'edit_project' project.id %}" class="id5"><i class="glyphicon glyphicon-pencil"></i></a>
                     <a href="{% url 'delete_project' project.id %}" class="id5"><i class="glyphicon glyphicon-trash"></i></a>

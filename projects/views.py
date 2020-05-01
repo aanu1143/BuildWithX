@@ -45,7 +45,7 @@ class ProjectCreateView(LoginRequiredMixin,CreateView):
 
 class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     model = Project
-    fields = ('project_name', 'description', 'url', 'website_image', 'build_with')
+    fields = ('project_name', 'description', 'url', 'website_image', 'build_with', 'git_url')
     template_name = 'project_edit.html'
     login_url = 'login'
 
