@@ -576,7 +576,8 @@ div.createbtn {
         padding: 1px;
     }
     .nav {
-        padding-left: 110px;
+        display: flex;
+        padding-left: 85px;
     }
     .navbar-nav>li>.dropdown-menu {
         position: absolute;
@@ -592,5 +593,8 @@ div.createbtn {
         position: absolute;
         top: 41px;
         left: -10px;
+    }
+    #addprojecticon {
+        display: none;
     }
 }
