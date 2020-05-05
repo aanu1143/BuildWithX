@@ -553,3 +553,44 @@ div.createbtn {
     padding: 10px;
     border-radius: 5px;
 }
+
+
+@media screen and (max-width: 770px) {
+    .search_bar {
+        display: none;
+    }
+    .container-fluid {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .container-fluid>.navbar-header {
+        margin-right: 0px;
+    }
+    .navbar-brand {
+        margin-left: 0px;
+        padding-top: 17px;
+
+    }
+    .mynav {
+        padding: 1px;
+    }
+    .nav {
+        padding-left: 110px;
+    }
+    .navbar-nav>li>.dropdown-menu {
+        position: absolute;
+        top: 41px;
+        left: -10px;
+    }
+    .navbar-nav .open .dropdown-menu {
+        border-radius: 8px;
+        margin-left: -11px;
+        background-color: whitesmoke;
+        box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        border: 0;
+        position: absolute;
+        top: 41px;
+        left: -10px;
+    }
+}
