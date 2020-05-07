@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class="projectdetail_container">
+    <div class="proheading">
+        <h1>{{ project.project_name }}</h1>
+    </div>
+    <div class="project_detail">
+        
+        <div class="imgcont">
+            <img src="{{ project.website_image.url }}" alt="error_img">
+            <div class="prolink">
+                <a href="{{ project.url }}" target="_blank"> <input type="button" class="mbtn" value="Preview Site"></a>
+                <a href="{{ project.git_url }}" target="_blank"> <input type="button" class="mbtn" value="View Code"></a>
+            </div>
+        </div>
+        <div class="detailcont">
+            <p><b>Uploaded By: </b> {{ project.user.first_name }} {{ project.user.last_name }} </p>
+            <p><b>Description: </b> {{ project.description }} </p>
+            <p><b> Framework Used: </b> {% for lang in project.build_with.all %} {{ lang }}  {% endfor %} </p>
+            <p><b>Uploaded on:</b> {{ project.date }}</p>
+            <p><b>Project Type:</b> {{ project.user_type }} </p>
+            <p><b>Views: </b> {{ project.view }} </p>
+            
+        </div>
+    </div>
+</div>
+{% endblock content %}

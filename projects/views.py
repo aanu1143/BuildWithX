@@ -73,7 +73,10 @@ class ProjectDeleteView(LoginRequiredMixin, DeleteView):
             raise PermissionDenied
         return super().dispatch(request, *args, **kwargs)
 
-class ProjectDetailView(LoginRequiredMixin, DetailView):
-    model = Project
-    template_name = 'project_detail.html'
-    login_url = 'login'
+
+def ProjectDetail(request, pk):
+    project = Project.objects.filter(id=pk).first()
+    project.view = project.view + 1
+    project.save()
+    context = {'project': project}
+    return render(request, 'project_detail.html', context)

@@ -23,6 +23,7 @@ class Project(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     user_type = models.CharField(max_length=25,choices=types, null=True)
     git_url = models.URLField(max_length=200, null=True, blank=True)
+    view = models.IntegerField(default=0, blank=True, null=True)
 
 
     def get_absolute_url(self):
