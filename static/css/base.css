@@ -618,7 +618,7 @@ div.createbtn {
     }
     .nav {
         display: flex;
-        padding-left: 80px;
+        padding-left: 76px;
     }
     .navbar-nav>li>.dropdown-menu {
         position: absolute;
