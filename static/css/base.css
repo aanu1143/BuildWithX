@@ -1,9 +1,18 @@
 #buildname {
     color: rgb(145, 145, 145);
 }
-#buildname:hover {
+
+#homebuildname:hover,#buildname:hover {
     color: black;
 }
+
+#homebuildname{
+    color:#fff;
+}
+
+
+
+
 
 html,
 body{
@@ -93,6 +102,17 @@ nav{
     padding: 10px;
     box-shadow: 3px 5px 5px 1px #dfdcdc;;
 }
+
+
+.homenav{
+    width:100vw;
+    background-color: #e8e6e400;
+    padding: 0px 20px;
+    position: absolute;
+    border:0px;
+    top:10px;
+}
+
 
 .dropmenu {
     background-color: white;

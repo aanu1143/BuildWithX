@@ -14,9 +14,12 @@
 </head>
 
 <body>
-    {% include 'includes/navbar.html' %}
-        {% block content %}
-        {% endblock content %}
+    {% block navbar %} <!-- In home page i want to display navbar with different style -->
+       {% include 'includes/navbar.html' %}
+    {% endblock navbar %}
+
+    {% block content %}
+    {% endblock content %}
     <div id="footer">
         <a href="https://github.com/aanu1143"><i class="glyphicon glyphicon-user"></i> By Aanu</a>
     </div>
