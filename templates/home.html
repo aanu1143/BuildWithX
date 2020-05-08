@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}Home{% endblock title %}
 
 {% block search %}
@@ -15,8 +15,10 @@
 </form>
 {% endblock search %}
 
+{% block navbar %}
+   {% include 'includes/home_navbar.html' %}
+{% endblock %}
 {% block content %}
-<div class="home_background"></div>
 <div class="home">
     <h2 style="font-size:12vw">Built With X.</h2>
     <p style="font-size:3.5vw">A platform for showcase of side projects.</p>
@@ -25,7 +27,6 @@
 
 
 <div>
-
     <div id="filter">
         <form action="" class="search_form">
             <input type="text" style="width:50%" class="form-control" placeholder="Search" id="search" name="search">

@@ -1,0 +1,32 @@
+{% load static %}
+ <nav class="navbar navbar-inverse mynav">
+        <div class="container-fluid">
+            <div class="navbar-header build">
+                <a class="navbar-brand" id="buildname" href="{% url 'home' %}">Built with X</a>
+            </div>
+            {% block search %}
+            {% endblock search %}
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                    <li class="nav-item" id="account">
+                        <a class="dropicon" href="" id="userMenu" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false"><span class="glyphicon glyphicon-user"></span> My Account <span class="glyphicon glyphicon-chevron-down"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li class="dropdown-item"><a href="{% url 'profile_detail' user.id %}">{{ user.username }}</a></li>
+                            <div class="dropdown-divider"></div>
+                            <li class="dropdown-item"><a href="{% url 'new_project' %}">Add Project</a></li>
+                            <div class="dropdown-divider"></div>
+                            <li class="dropdown-item" ><a href="{% url 'password_change' %}">Change password</a></li>
+                            <div class="dropdown-divider"></div>
+                            <li class="dropdown-item"> <a href="{% url 'logout' %}">Log Out</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                <li id="addprojecticon"><a href="{% url 'login' %}"><span class="glyphicon glyphicon-plus"></span> Add Project</a></li>
+                <li id="signupicon"><a href="{% url 'signup' %}"><span class="glyphicon glyphicon-user"></span>  Sign Up</a></li>
+                <li id="loginicon" ><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span>   Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
