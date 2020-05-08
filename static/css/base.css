@@ -6,7 +6,7 @@
     color: black;
 }
 
-#homebuildname{
+.homebuildname{
     color:#fff;
 }
 
@@ -17,7 +17,6 @@
 html,
 body{
     overflow-x: hidden;
-    color:#fff;
 }
 
 #circle{
@@ -593,7 +592,10 @@ div.createbtn {
     padding: 10px;
     border-radius: 5px;
 }
-
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
 
 @media screen and (max-width: 770px) {
     .search_bar {
@@ -602,7 +604,6 @@ div.createbtn {
     .container-fluid {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
     }
     .container-fluid>.navbar-header {
         margin-right: 0px;
@@ -617,7 +618,7 @@ div.createbtn {
     }
     .nav {
         display: flex;
-        padding-left: 85px;
+        padding-left: 80px;
     }
     .navbar-nav>li>.dropdown-menu {
         position: absolute;
