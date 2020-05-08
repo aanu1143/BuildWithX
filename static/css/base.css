@@ -5,8 +5,26 @@
     color: black;
 }
 
+html,
 body{
     overflow-x: hidden;
+    color:#fff;
+}
+
+#circle{
+    position: absolute;
+    top:60%;
+}
+
+#hexagon{
+    position: absolute;
+    top:20%;
+    right:0;
+    z-index:1;
+}
+
+nav{
+    padding:50px;
 }
 
 .id1 {
@@ -84,11 +102,15 @@ body{
     margin-top: -20px;
 }
 .home {
-    height: calc(100vh - 70px);
+    height: calc(100vh + 150px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: url('../svgbg/back.svg');
+    background-size: cover;
+    margin-bottom: 100px;
+    background-position: center;
 }
 .circle {
     padding-left: 25%;
@@ -142,9 +164,6 @@ body{
     color: red;
 }
 
-.main{
-    margin-top: -20px;
-}
 
 .sidebar {
   margin: 0;
@@ -538,6 +557,7 @@ div.createbtn {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin-bottom:40px;
 }
 
 .search_form{
