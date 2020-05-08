@@ -654,7 +654,7 @@ div.createbtn {
     background-color: rgb(169, 223, 245);
     height: 200px;
     margin-top: 30px;
-    padding-top: 25px;
+    text-align: center;
 }
 
 .proheading h1 {
@@ -710,7 +710,6 @@ div.createbtn {
 .detailcont p {
     width: 90%;
     height: 100%;
-    max-height: 50px;
     padding: 10px;
     background-color: rgb(198, 234, 248);
 }
