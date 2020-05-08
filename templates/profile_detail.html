@@ -49,8 +49,13 @@
                 <img src="{{ project.website_image.url }}" style="height:250px;width:100%;max-width:450px;" alt="error_img">
             </a>
             <div class="card_details">
-                <a href="{{ project.url }}" target="_blank"><h2 style="margin-top:0px"> {{ project.project_name }}</h2>
-                </a>
+                <div class="projecttitle">
+                    <a href="{% url 'project_detail' project.id %}">
+                        <h2 style="margin-top:0px"> {{ project.project_name }}</h2>
+                    </a>
+                    <p style="width: 50px;"> <img src="/media/img/eye-solid.svg" style="width: 18px; opacity: 0.5;" alt="">
+                        {{ project.view }} </p>
+                </div>
                 <p>{{ project.description }}</p>
                 <div class="card_url">
                     <div>
@@ -91,7 +96,13 @@
                 <img src="{{ project.website_image.url }}" style="height:250px;width:100%;max-width:450px;" alt="error_img">
             </a>
             <div class="card_details">
-                <a href="{{ project.url }}" target="_blank"><h2 style="margin-top:0px"> {{ project.project_name }}</h2></a>
+                <div class="projecttitle">
+                    <a href="{% url 'project_detail' project.id %}">
+                        <h2 style="margin-top:0px"> {{ project.project_name }}</h2>
+                    </a>
+                    <p style="width: 50px;"> <img src="/media/img/eye-solid.svg" style="width: 18px; opacity: 0.5;" alt="">
+                        {{ project.view }} </p>
+                </div>
                 <p>{{ project.description }}</p>
                 <div class="card_url">
                     <div>
