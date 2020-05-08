@@ -1,5 +1,6 @@
 #buildname {
     color: rgb(145, 145, 145);
+    padding-left: 35px;
 }
 
 #homebuildname:hover,#buildname:hover {
@@ -606,7 +607,7 @@ div.createbtn {
         flex-direction: row;
     }
     .container-fluid>.navbar-header {
-        margin-right: 0px;
+        margin-right: 2px;
     }
     .navbar-brand {
         margin-left: 0px;
