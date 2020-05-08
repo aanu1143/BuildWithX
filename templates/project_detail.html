@@ -18,7 +18,7 @@
         </div>
         <div class="detailcont">
             <p><b>Uploaded By: </b> {{ project.user.first_name }} {{ project.user.last_name }} </p>
-            <p><b>Description: </b> {{ project.description }} </p>
+            <p style="max-height: 80px;"><b>Description: </b> {{ project.description }} </p>
             <p><b> Framework Used: </b> {% for lang in project.build_with.all %} {{ lang }}  {% endfor %} </p>
             <p><b>Uploaded on:</b> {{ project.date }}</p>
             <p><b>Project Type:</b> {{ project.user_type }} </p>
