@@ -785,7 +785,7 @@ div.createbtn {
     }
 }
 
-@media screen and (min-width:768px) {
+@media (min-width:768px) {
     .navbar-right {
         margin-right: 4px;
     }
