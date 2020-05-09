@@ -107,7 +107,7 @@ nav{
 .homenav{
     width:100vw;
     background-color: #e8e6e400;
-    padding: 0px 20px;
+    padding: 0px 10px;
     position: absolute;
     border:0px;
     top:10px;
@@ -608,6 +608,7 @@ div.createbtn {
     }
     .container-fluid>.navbar-header {
         margin-right: 2px;
+        width: 50%;
     }
     .navbar-brand {
         margin-left: 0px;
@@ -621,6 +622,7 @@ div.createbtn {
         display: flex;
         width: 78%;
         justify-content: flex-end;
+        margin: auto;
     }
     .navbar-nav>li>.dropdown-menu {
         position: absolute;
