@@ -713,6 +713,7 @@ div.createbtn {
 .detailcont p {
     width: 90%;
     height: 100%;
+    max-height: fit-content;
     padding: 10px;
     background-color: rgb(198, 234, 248);
 }
