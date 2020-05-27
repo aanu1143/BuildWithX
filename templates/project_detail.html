@@ -13,7 +13,9 @@
             <img src="{{ project.website_image.url }}" alt="error_img">
             <div class="prolink">
                 <a href="{{ project.url }}" target="_blank"> <input type="button" class="mbtn" value="Preview Site"></a>
+                {% if project.git_url %}
                 <a href="{{ project.git_url }}" target="_blank"> <input type="button" class="mbtn" value="View Code"></a>
+                {% endif %}
             </div>
         </div>
         <div class="detailcont">
