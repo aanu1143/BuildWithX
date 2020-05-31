@@ -1,12 +1,39 @@
 #buildname {
     color: rgb(145, 145, 145);
+    padding-left: 35px;
 }
-#buildname:hover {
+
+#homebuildname:hover,#buildname:hover {
     color: black;
 }
 
+.homebuildname{
+    color:#fff;
+}
+
+
+
+
+
+html,
 body{
     overflow-x: hidden;
+}
+
+#circle{
+    position: absolute;
+    top:60%;
+}
+
+#hexagon{
+    position: absolute;
+    top:20%;
+    right:0;
+    z-index:1;
+}
+
+nav{
+    padding:50px;
 }
 
 .id1 {
@@ -76,6 +103,17 @@ body{
     box-shadow: 3px 5px 5px 1px #dfdcdc;;
 }
 
+
+.homenav{
+    width:100vw;
+    background-color: #e8e6e400;
+    padding: 0px 10px;
+    position: absolute;
+    border:0px;
+    top:10px;
+}
+
+
 .dropmenu {
     background-color: white;
     padding-top: -5px;
@@ -84,11 +122,15 @@ body{
     margin-top: -20px;
 }
 .home {
-    height: calc(100vh - 70px);
+    height: calc(100vh + 150px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: url('../svgbg/back.svg');
+    background-size: cover;
+    margin-bottom: 100px;
+    background-position: center;
 }
 .circle {
     padding-left: 25%;
@@ -142,9 +184,6 @@ body{
     color: red;
 }
 
-.main{
-    margin-top: -20px;
-}
 
 .sidebar {
   margin: 0;
@@ -538,6 +577,7 @@ div.createbtn {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin-bottom:40px;
 }
 
 .search_form{
@@ -553,7 +593,10 @@ div.createbtn {
     padding: 10px;
     border-radius: 5px;
 }
-
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
 
 @media screen and (max-width: 770px) {
     .search_bar {
@@ -562,10 +605,10 @@ div.createbtn {
     .container-fluid {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
     }
     .container-fluid>.navbar-header {
-        margin-right: 0px;
+        margin-right: 2px;
+        width: 50%;
     }
     .navbar-brand {
         margin-left: 0px;
@@ -577,7 +620,9 @@ div.createbtn {
     }
     .nav {
         display: flex;
-        padding-left: 85px;
+        width: 78%;
+        justify-content: flex-end;
+        margin: auto;
     }
     .navbar-nav>li>.dropdown-menu {
         position: absolute;
@@ -612,7 +657,7 @@ div.createbtn {
     background-color: rgb(169, 223, 245);
     height: 200px;
     margin-top: 30px;
-    padding-top: 25px;
+    text-align: center;
 }
 
 .proheading h1 {
@@ -668,7 +713,7 @@ div.createbtn {
 .detailcont p {
     width: 90%;
     height: 100%;
-    max-height: 50px;
+    max-height: fit-content;
     padding: 10px;
     background-color: rgb(198, 234, 248);
 }
@@ -738,5 +783,11 @@ div.createbtn {
         display: block;
         top: 104%;
         left: 14%;
+    }
+}
+
+@media (min-width:768px) {
+    .navbar-right {
+        margin-right: 4px;
     }
 }
