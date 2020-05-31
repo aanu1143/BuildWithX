@@ -24,7 +24,7 @@ SECRET_KEY = 'gd2+zcb)5li58swh^tvkqzl8@-w2ok8-zl7w1)k#xs!@8+5nh9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['builtwithx.tech','3.134.244.73','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,11 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'crispy_forms',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
